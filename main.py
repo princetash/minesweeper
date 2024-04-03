@@ -22,8 +22,11 @@ game_title = Label(top_frame, bg="#5D6D7E", fg="white", text="Minesweeper Game",
 
 game_title.place(x=new.width_prct(30), y=0)
 
-#boad
-center_frame = Frame(root, bg="white", width=new.width_prct(75), height=new.height_prct(75)).place(x=new.width_prct(30),y=new.height_prct(30))
+
+# board
+center_frame = Frame(root, bg="white", width=new.width_prct(75), height=new.height_prct(75))
+center_frame.place(relx=0.5, rely=0.5, anchor=CENTER)
+
 
 
 for x in range(configure.GRID_SIZE):

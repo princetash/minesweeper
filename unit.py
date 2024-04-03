@@ -40,14 +40,14 @@ class Cell:
                     self.show_cell()
 
                     if Cell.cell_count == configure.MINES_COUNT:
-                      ctypes.WinDLL.user32.MessageBoxW(0, "Congratulations! Tou won", "Game Over", 0)  
+                      ctypes.windll.user32.MessageBoxW(0, "Congratulations! Tou won", "Game Over", 0)  
                       self.cell_btn_object.unbind("<Button-1>")
                       self.cell_btn_object.unbind("<Button-3>")
 
 
     def show_mine(self):
         self.cell_btn_object.configure(bg="red" )
-        ctypes.windll.user32.messageBoxW(0, "You clickedon a mine", "Play Again", 0)
+        ctypes.windll.user32.MessageBoxW(0, "You clicked on a mine", "Play Again", 0)
         sys.exit()
 
 
@@ -67,11 +67,11 @@ class Cell:
             self.get_cell_by_axis(self.x + 1, self.y + 1),
             self.get_cell_by_axis(self.x + 1, self.y ),
             self.get_cell_by_axis(self.x + 1, self.y - 1),
-            self.get_cell_by_axis(self.x - 1, self.y - 1),
-            
+            self.get_cell_by_axis(self.x, self.y - 1),
         ]
         cells = [cell for cell in cells if cell is not None]
         return cells
+
 
     @property
     def sorrounded_cells_mines_length(self):
@@ -86,9 +86,9 @@ class Cell:
             Cell.cell_count -= 1
             self.cell_btn_object.configure(text = self.sorrounded_cells_mines_length)
             if Cell.cell_count_label_object:
-                Cell.cell_count_label_object.configure(text=f"Cells Left{Cell.cell_count}")
-            self.cell_btn_object.configure(bg="white")
-            self.is_opened = True
+                Cell.cell_count_label_object.configure(text=f"Cells Left: {Cell.cell_count}")
+                self.cell_btn_object.configure(bg="red")
+                self.is_opened = True
 
     def right_click_actions(self, event):
         if not self.is_mine_candidate:
