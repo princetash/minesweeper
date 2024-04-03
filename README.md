@@ -29,13 +29,14 @@ To run the Minesweeper game locally, follow these steps:
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/princetash/minesweeper.git
+   git clone https://github.com/princetash/minesweeper.git/
 Usage
 To start the Minesweeper game, execute the main.py script:
 python main.py
 Once the game window opens, you can customize the grid size and mine density using the options provided. Left-click on cells to reveal them and right-click to mark potential mine locations. The game ends when you either reveal a mine or mark all mines correctly.
 
 ##Contributing
+
 Contributions are welcome! If you'd like to contribute to this project, please follow these guidelines:
 
 Fork the repository and create your branch from main.
