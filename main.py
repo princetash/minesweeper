@@ -29,12 +29,17 @@ center_frame = Frame(root, bg="white", width=new.width_prct(75), height=new.heig
 for x in range(configure.GRID_SIZE):
     for y in range(configure.GRID_SIZE):
         c = Cell(x, y)
-        c.create_btn_object(center_frame)
-        c.cell_btn_object.grid(column = x, row = y)
+        c.cell_btn_object = c.create_btn_object(center_frame)
+        c.cell_btn_object.grid(column=x, row=y)
 
 
-Cell.cell_count_label_object(top_frame)
-Cell.cell_count_label_object.place(x = new.width_prct(42), y= new.height_prct(15))
+
+# Create the label object
+Cell.cell_count_label_object = Label(top_frame, text=f"Cells Left: {Cell.cell_count}")
+
+# Place the label in the top frame
+Cell.cell_count_label_object.place(x=new.width_prct(42), y=new.height_prct(15))
+
 
 
 Cell.randomize_mines()

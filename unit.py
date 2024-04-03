@@ -22,11 +22,13 @@ class Cell:
 
 
     def create_btn_object(self, location):
-        btn = Button(location,
-                    width=12,
-                    height=4,)
-        btn.bind('<Button-1>', self.left_click_actions)
-        btn.bind('<Button-3>', self.right_click_actions) 
+        self.cell_btn_object = Button(location,
+                                    width=12,
+                                    height=4)
+        self.cell_btn_object.bind('<Button-1>', self.left_click_actions)
+        self.cell_btn_object.bind('<Button-3>', self.right_click_actions)
+        return self.cell_btn_object
+
 
     def left_click_actions(self, event):
         if self.is_mine:
